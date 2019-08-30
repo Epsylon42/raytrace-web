@@ -25,6 +25,7 @@
 
 <script>
 import Vue from 'vue';
+import example from '../raytrace/example_scene.ron';
 
 import editor from './editor.vue';
 import display from './display.vue';
@@ -33,7 +34,7 @@ import controls from './controls.vue';
 export default Vue.component('main', {
     components: { editor, display, controls },
     data() {
-        return { scene: '', processing: false, error: null, };
+        return { scene: example, processing: false, error: null, };
     },
     methods: {
         postprocess() {

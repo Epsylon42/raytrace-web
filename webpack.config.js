@@ -33,6 +33,10 @@ const browserConfig = {
             {
                 test: /\.worker\.js$/,
                 loader: 'worker-loader'
+            },
+            {
+                test: /\.ron$/,
+                loader: 'raw-loader'
             }
         ]
     },
