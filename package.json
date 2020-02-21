@@ -4,7 +4,9 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node ./build.js && webpack && cp index.html output"
+    "build": "webpack && cp index.html output",
+    "start": "simple-server output $PORT",
+    "postinstall": "npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +22,8 @@
     "worker-loader": "^2.0.0"
   },
   "dependencies": {
+    "@wasm-tool/wasm-pack-plugin": "^1.1.0",
+    "simple-server": "^1.1.1",
     "vue": "^2.6.10"
   }
 }

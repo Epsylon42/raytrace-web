@@ -1,4 +1,4 @@
-import('./rtlib')
+import('../raytrace/pkg')
     .then(({ trace_wasm }) => {
         self.addEventListener('message', msg => {
             const { id, scene } = msg.data;

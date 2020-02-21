@@ -38,6 +38,13 @@ export default Vue.component('display', {
                 this.worker.postMessage({ id: 0, scene });
             });
         },
+        /*renderImage(scene) {
+            rtlib.then(({trace_wasm}) => {
+                let img = trace_wasm(scene);
+                let blob = new Blob([img.buffer], { type: 'image/png' });
+                this.src = URL.createObjectURL(blob);
+            });
+        },*/
 
         showImage(url) {
             this.src = url;

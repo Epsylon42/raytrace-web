@@ -1,5 +1,6 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const WasmPackPlugin = require('@wasm-tool/wasm-pack-plugin')
 
 const mode = 'production';
 
@@ -41,7 +42,7 @@ const browserConfig = {
         ]
     },
     plugins: [
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
     ]
 };
 
@@ -53,7 +54,13 @@ const workerConfig = {
     output: {
         filename: 'wasm-render.worker.js',
         path: path.resolve(__dirname, 'output'),
-    }
+    },
+    plugins: [
+        new WasmPackPlugin({
+            crateDirectory: path.resolve(__dirname, 'raytrace'),
+            extraArgs: '-- --features wasm'
+        })
+    ]
 };
 
 module.exports = [browserConfig, workerConfig];
